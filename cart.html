@@ -1,0 +1,47 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <title>Cart & Payment Portal</title>
+  <link rel="stylesheet" type="text/css" href="cart.css">
+</head>
+<body>
+  <div class="cart-container">
+    <h1>Shopping Cart</h1>
+    <div class="cart-items">
+      <div class="item">
+        <img src="img.jpeg" alt="Item 1">
+        <h3>Item 1</h3>
+        <p>Rs 19.99$</p>
+        <button class="remove-button">Remove</button>
+      </div>
+      <!-- Add more items here -->
+    </div>
+    <div class="cart-total">
+      <h3>Total: 19.99$</h3>
+    </div>
+  </div>
+
+  <div class="payment-container">
+    <h1>Payment Details</h1>
+    <form class="payment-form" id="payment-form" action="cart.php" method="post">
+      <div class="form-group">
+        <label for="cardholder">Cardholder Name:</label>
+        <input type="text" id="cardholder" name="cardholder" required>
+      </div>
+      <div class="form-group">
+        <label for="cardnumber">Card Number:</label>
+        <input type="text" id="cardnumber" name="cardnumber" required>
+      </div>
+      <div class="form-group">
+        <label for="expiry">Expiry Date:</label>
+        <input type="text" id="expiry" name="expiry" placeholder="MM/YY" required>
+      </div>
+      <div class="form-group">
+        <label for="cvv">CVV:</label>
+        <input type="text" id="cvv" name="cvv" required>
+      </div>
+      <button type="submit">Pay Now</button>
+    </form>
+  </div>
+</body>
+</html>

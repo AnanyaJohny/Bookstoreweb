@@ -1,0 +1,79 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Bookstore Search</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            background-color: #e0f2e9; /* Light green background color */
+            text-align: center;
+        }
+
+        .container {
+            max-width: 450px;
+            margin: 0 auto;
+            padding: 20px;
+            background: #ccffcc; /* Pale green container background */
+            border-radius: 5px;
+            box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+        }
+
+        h2 {
+            text-align: center;
+        }
+
+        input[type="text"] {
+            width: 90%;
+            padding: 10px;
+            margin-bottom: 10px;
+            border: 1px solid #6ca067; /* Darker green border */
+            border-radius: 5px;
+        }
+
+        button {
+            background: #2b9500; /* Dark green button background */
+            color: #fff;
+            border: none;
+            padding: 10px 20px;
+            border-radius: 5px;
+            cursor: pointer;
+        }
+
+        button:hover {
+            background: #1c6600; /* Darker green on hover */
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <h2>Bookstore Search</h2>
+        <input type="text" id="book-title" placeholder="Enter book title">
+        <button id="search-button">Search</button>
+        <p id="result"></p>
+    </div>
+
+    <script>
+        // Sample book repository data
+        const bookRepository = {
+            "Book1": true, // Available
+            "Book2": false, // Not available
+            "Book3": true, // Available
+        };
+
+        const searchButton = document.getElementById("search-button");
+        const bookTitleInput = document.getElementById("book-title");
+        const result = document.getElementById("result");
+
+        searchButton.addEventListener("click", function() {
+            const bookTitle = bookTitleInput.value;
+            const isAvailable = bookRepository[bookTitle];
+
+            if (isAvailable !== undefined) {
+                result.textContent = isAvailable ? "Book is available in the bookstore." : "Book is not available in the bookstore.";
+            } else {
+                result.textContent = "Book not found in the repository.";
+            }
+        });
+    </script>
+</body>
+</html>

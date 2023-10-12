@@ -1,0 +1,107 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Bookstore Signup</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            background-color: #e0f2e9; /* Light green background color */
+        }
+
+        .container {
+            max-width: 400px;
+            margin: 0 auto;
+            padding: 40px;
+            background: #ccffcc; /* Pale green container background */
+            border-radius: 5px;
+            box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+        }
+
+        h2 {
+            text-align: center;
+        }
+
+        label {
+            display: block;
+            margin-bottom: 5px;
+        }
+
+        input[type="text"],
+        input[type="email"],
+        input[type="password"],
+        select {
+            width: 100%;
+            padding: 10px;
+            margin-bottom: 10px;
+            border: 1px solid #6ca067; /* Darker green border */
+            border-radius: 5px;
+        }
+
+        button {
+            background: #2b9500; /* Dark green button background */
+            color: #fff;
+            border: none;
+            padding: 10px 20px;
+            border-radius: 5px;
+            cursor: pointer;
+        }
+
+        button:hover {
+            background: #1c6600; /* Darker green on hover */
+        }
+
+        .error {
+            color: #ff0000; /* Red for error messages */
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <h2>Bookstore Signup</h2>
+        <form id="signup-form" action="signup.php" method="post">
+            <label for="name">Name:</label>
+            <input type="text" name="name" id="name" required>
+
+            <label for="email">Email:</label>
+            <input type="email" name="email" id="email" required>
+
+            <label for="password">Password:</label>
+            <input type="password" name="password" id="password" required>
+
+            <label for="genre">Favorite Genre:</label>
+            <select name="genre" id="genre">
+                <option value="fiction">Fiction</option>
+                <option value="nonfiction">Non-Fiction</option>
+                <option value="mystery">Mystery</option>
+                <option value="fantasy">Fantasy</option>
+                <option value="sciencefiction">Science Fiction</option>
+            </select>
+
+            <button type="submit" id="signup-button">Sign Up</button>
+        </form>
+        <p class="error" id="error-message"></p>
+        <p>Already have an account? <button id="login-link" href="login.html">Login</button></p>
+    </div>
+
+    <script>
+        document.getElementById("signup-button").addEventListener("click", function(event) {
+            event.preventDefault(); // Prevent the form from submitting automatically
+
+            // Basic client-side validation
+            const name = document.getElementById("name").value;
+            const email = document.getElementById("email").value;
+            const password = document.getElementById("password").value;
+
+            if (!name || !email || !password) {
+                document.getElementById("error-message").textContent = "All fields are required.";
+                return;
+            }
+
+            // Additional validation can be added here
+
+            // If all validation passes, submit the form
+            document.getElementById("signup-form").submit();
+        });
+    </script>
+</body>
+</html>
